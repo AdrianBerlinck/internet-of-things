@@ -101,7 +101,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "ad04b2b7b467e9a1"
@@ -120,8 +120,8 @@
         "maxTimeMS": "0",
         "handleDocId": false,
         "name": "",
-        "x": 810,
-        "y": 400,
+        "x": 790,
+        "y": 440,
         "wires": [
             []
         ]
@@ -136,7 +136,7 @@
         "split": false,
         "rowsPerMsg": 1,
         "outputs": 1,
-        "x": 790,
+        "x": 130,
         "y": 180,
         "wires": [
             []
@@ -156,7 +156,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 120,
-        "y": 520,
+        "y": 460,
         "wires": [
             [
                 "9541d0fe6256e23c"
@@ -176,7 +176,7 @@
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 520,
+        "y": 460,
         "wires": [
             [
                 "eaa2a4c93022ded1"
@@ -195,7 +195,7 @@
         "field": "payload._id",
         "fieldType": "msg",
         "x": 310,
-        "y": 520,
+        "y": 460,
         "wires": [
             [
                 "97b13e08dc9b403e"
@@ -214,7 +214,7 @@
         "field": "payload._id",
         "fieldType": "msg",
         "x": 290,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "820ef4b2c3ccc77f"
@@ -234,60 +234,93 @@
         "finalize": "",
         "libs": [],
         "x": 540,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
-                "eaa2a4c93022ded1"
+                "eaa2a4c93022ded1",
+                "46d23cca28b57fe2"
             ]
         ]
     },
     {
-        "id": "6a0d6b3b8bc6df20",
-        "type": "http in",
+        "id": "45b92e3c0d835a75",
+        "type": "mqtt out",
         "z": "dc9d5d534fab6eb2",
         "name": "",
-        "url": "/teste",
-        "method": "get",
-        "upload": false,
-        "skipBodyParsing": false,
-        "swaggerDoc": "",
-        "x": 120,
-        "y": 760,
-        "wires": [
-            [
-                "c06dd4a0ac85635b"
-            ]
-        ]
-    },
-    {
-        "id": "acd84a0b98e229bd",
-        "type": "http response",
-        "z": "dc9d5d534fab6eb2",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 530,
-        "y": 720,
+        "topic": "",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "607da66db889fa93",
+        "x": 1150,
+        "y": 300,
         "wires": []
     },
     {
-        "id": "c06dd4a0ac85635b",
+        "id": "46d23cca28b57fe2",
+        "type": "switch",
+        "z": "dc9d5d534fab6eb2",
+        "name": "",
+        "property": "payload.data",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 300,
+        "wires": [
+            [
+                "c94460ae9a3129a6"
+            ]
+        ]
+    },
+    {
+        "id": "c94460ae9a3129a6",
         "type": "function",
         "z": "dc9d5d534fab6eb2",
         "name": "function 1",
-        "func": "msg.teste = \"TESTE\";\nreturn msg;",
+        "func": "var command = {\n    payload: {\n        power_on: true,\n        actuador: \"MOTOR CC\",\n    },\n    topic: `/devices/${msg.payload.device_id}/cmd/motor`\n};\nreturn command;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 740,
+        "x": 980,
+        "y": 300,
         "wires": [
             [
-                "acd84a0b98e229bd"
+                "45b92e3c0d835a75",
+                "2dfd27632f86ce8c"
             ]
         ]
+    },
+    {
+        "id": "2dfd27632f86ce8c",
+        "type": "debug",
+        "z": "dc9d5d534fab6eb2",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 240,
+        "wires": []
     }
 ]
