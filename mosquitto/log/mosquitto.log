@@ -415,3 +415,166 @@
 1757983913: Saving in-memory database to /mosquitto/data//mosquitto.db.
 1757983913: Client sub-4dda5509e0d338 closed its connection.
 1757983913: Client pub-0057bedfc8c0e closed its connection.
+1758059617: mosquitto version 2.0.22 starting
+1758059617: Config loaded from /mosquitto/config/mosquitto.conf.
+1758059617: Opening ipv4 listen socket on port 1883.
+1758059617: Opening websockets listen socket on port 9001.
+1758059617: mosquitto version 2.0.22 running
+1758059623: New connection from 172.19.0.6:47736 on port 1883.
+1758059623: New client connected from 172.19.0.6:47736 as noderedbe47a6eb2d0c3463 (p2, c1, k60, u'aluno').
+1758060155: New client connected from 172.19.0.1:50078 as lamp-01-web-48b85e (p2, c1, k60, u'aluno').
+1758060246: Client lamp-01-web-48b85e closed its connection.
+1758060247: Client <unknown> closed its connection.
+1758060247: New client connected from 172.19.0.1:57574 as lamp-01-web-a9795f (p2, c1, k60, u'aluno').
+1758060258: Client lamp-01-web-a9795f closed its connection.
+1758060258: New client connected from 172.19.0.1:34340 as lamp-01-web-d45575 (p2, c1, k60, u'aluno').
+1758060259: Client lamp-01-web-d45575 closed its connection.
+1758060259: New client connected from 172.19.0.1:34350 as lamp-01-web-4cb522 (p2, c1, k60, u'aluno').
+1758060259: Client lamp-01-web-4cb522 closed its connection.
+1758060259: New client connected from 172.19.0.1:34354 as lamp-01-web-f5863f (p2, c1, k60, u'aluno').
+1758060259: Client lamp-01-web-f5863f closed its connection.
+1758060259: New client connected from 172.19.0.1:34362 as lamp-01-web-e48d1a (p2, c1, k60, u'aluno').
+1758060260: Client lamp-01-web-e48d1a closed its connection.
+1758060260: New client connected from 172.19.0.1:34374 as lamp-01-web-36a6bd (p2, c1, k60, u'aluno').
+1758060260: Client lamp-01-web-36a6bd closed its connection.
+1758060260: Client <unknown> closed its connection.
+1758060260: New client connected from 172.19.0.1:34386 as lamp-01-web-169084 (p2, c1, k60, u'aluno').
+1758060262: Client lamp-01-web-169084 closed its connection.
+1758060269: New client connected from 172.19.0.1:38026 as lamp-01-web-d7989d (p2, c1, k60, u'aluno').
+1758060298: New client connected from 172.19.0.1:48390 as switch-web-bbe6cf (p2, c1, k60, u'aluno').
+1758060360: Client lamp-01-web-d7989d closed its connection.
+1758060361: New client connected from 172.19.0.1:42354 as lamp-01-web-d7989d (p2, c1, k60, u'aluno').
+1758060388: Client switch-web-bbe6cf closed its connection.
+1758060389: New client connected from 172.19.0.1:54374 as switch-web-bbe6cf (p2, c1, k60, u'aluno').
+1758060395: Client switch-web-bbe6cf closed its connection.
+1758060395: Client lamp-01-web-d7989d closed its connection.
+1758060731: New client connected from 172.19.0.1:50368 as lamp-01-web-8e18c6 (p2, c1, k60, u'aluno').
+1758060747: New client connected from 172.19.0.1:41806 as switch-web-bb5b0a (p2, c1, k60, u'aluno').
+1758060764: Client lamp-01-web-8e18c6 closed its connection.
+1758060764: Client switch-web-bb5b0a closed its connection.
+1758060880: New client connected from 172.19.0.1:60124 as sub-5243294a1da82 (p2, c1, k60, u'aluno').
+1758060896: New client connected from 172.19.0.1:43758 as pub-680f593584076 (p2, c1, k60, u'aluno').
+1758061418: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1758061418: Client sub-5243294a1da82 closed its connection.
+1758061418: Client pub-680f593584076 closed its connection.
+1758061447: New client connected from 172.19.0.1:34634 as pub-396a59d5eb813 (p2, c1, k60, u'aluno').
+1758061455: New client connected from 172.19.0.1:46454 as sub-ed01e08783c19 (p2, c1, k60, u'aluno').
+1758063219: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1758063270: Client noderedbe47a6eb2d0c3463 disconnected.
+1758063270: New connection from 172.19.0.6:49076 on port 1883.
+1758063270: New client connected from 172.19.0.6:49076 as nodered133803f17aee8124 (p2, c1, k60, u'aluno').
+1758063348: Client nodered133803f17aee8124 disconnected.
+1758063348: New connection from 172.19.0.6:41296 on port 1883.
+1758063348: New client connected from 172.19.0.6:41296 as nodered1f31cdb079fdc0c1 (p2, c1, k60, u'aluno').
+1758063668: Client nodered1f31cdb079fdc0c1 disconnected.
+1758063668: New connection from 172.19.0.6:58958 on port 1883.
+1758063668: New client connected from 172.19.0.6:58958 as noderedded30b192429857f (p2, c1, k60, u'aluno').
+1758064004: New client connected from 172.19.0.1:39142 as lamp-01-web-d27157 (p2, c1, k60, u'aluno').
+1758064095: Client lamp-01-web-d27157 closed its connection.
+1758064096: New client connected from 172.19.0.1:42032 as lamp-01-web-d27157 (p2, c1, k60, u'aluno').
+1758064187: Client lamp-01-web-d27157 closed its connection.
+1758064188: New client connected from 172.19.0.1:35116 as lamp-01-web-d27157 (p2, c1, k60, u'aluno').
+1758064223: Client lamp-01-web-d27157 closed its connection.
+1758064223: New client connected from 172.19.0.1:46794 as lamp-01-web-4aebc0 (p2, c1, k60, u'aluno').
+1758064235: New client connected from 172.19.0.1:57678 as switch-web-fcae49 (p2, c1, k60, u'aluno').
+1758064261: New client connected from 172.19.0.1:47688 as switch-web-84272b (p2, c1, k60, u'aluno').
+1758064270: Client switch-web-84272b closed its connection.
+1758064270: New client connected from 172.19.0.1:51078 as switch-web-68644e (p2, c1, k60, u'aluno').
+1758064270: Client switch-web-68644e closed its connection.
+1758064270: New client connected from 172.19.0.1:51084 as switch-web-5ff693 (p2, c1, k60, u'aluno').
+1758064270: Client switch-web-5ff693 closed its connection.
+1758064270: New client connected from 172.19.0.1:51086 as switch-web-525004 (p2, c1, k60, u'aluno').
+1758064270: Client switch-web-525004 closed its connection.
+1758064271: New client connected from 172.19.0.1:51102 as switch-web-998c4e (p2, c1, k60, u'aluno').
+1758064271: Client switch-web-998c4e closed its connection.
+1758064271: New client connected from 172.19.0.1:51110 as switch-web-ff81bb (p2, c1, k60, u'aluno').
+1758064271: Client switch-web-ff81bb closed its connection.
+1758064271: New client connected from 172.19.0.1:51116 as switch-web-6ba7cf (p2, c1, k60, u'aluno').
+1758064275: Client switch-web-6ba7cf closed its connection.
+1758064314: Client lamp-01-web-4aebc0 closed its connection.
+1758064315: New client connected from 172.19.0.1:55454 as lamp-01-web-4aebc0 (p2, c1, k60, u'aluno').
+1758064326: Client switch-web-fcae49 closed its connection.
+1758064327: New client connected from 172.19.0.1:50978 as switch-web-fcae49 (p2, c1, k60, u'aluno').
+1758064406: Client lamp-01-web-4aebc0 closed its connection.
+1758064407: New client connected from 172.19.0.1:57240 as lamp-01-web-4aebc0 (p2, c1, k60, u'aluno').
+1758064418: Client switch-web-fcae49 closed its connection.
+1758064419: New client connected from 172.19.0.1:43068 as switch-web-fcae49 (p2, c1, k60, u'aluno').
+1758064464: Client lamp-01-web-4aebc0 closed its connection.
+1758064465: New client connected from 172.19.0.1:56308 as lamp-01-web-efb37e (p2, c1, k60, u'aluno').
+1758064508: Client switch-web-fcae49 closed its connection.
+1758064508: New client connected from 172.19.0.1:60114 as switch-web-5e19a6 (p2, c1, k60, u'aluno').
+1758064935: Client lamp-01-web-efb37e closed its connection.
+1758064935: New client connected from 172.19.0.1:37366 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758064936: Client switch-web-5e19a6 closed its connection.
+1758064937: New client connected from 172.19.0.1:37372 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758065019: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1758065457: Client switch-web-0cd069 closed its connection.
+1758065518: Client lamp-01-web-31ed5c closed its connection.
+1758065601: New client connected from 172.19.0.1:56688 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758065661: Client switch-web-0cd069 closed its connection.
+1758065661: New client connected from 172.19.0.1:60344 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758065721: Client lamp-01-web-31ed5c closed its connection.
+1758065721: New client connected from 172.19.0.1:50150 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758065781: Client switch-web-0cd069 closed its connection.
+1758065781: New client connected from 172.19.0.1:52636 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758065841: New client connected from 172.19.0.1:50368 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758065841: Client lamp-01-web-31ed5c closed its connection.
+1758065901: Client switch-web-0cd069 closed its connection.
+1758065901: New client connected from 172.19.0.1:59078 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758065961: New client connected from 172.19.0.1:41600 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758065961: Client lamp-01-web-31ed5c closed its connection.
+1758066021: Client switch-web-0cd069 closed its connection.
+1758066021: New client connected from 172.19.0.1:41830 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758066081: Client lamp-01-web-31ed5c closed its connection.
+1758066081: New client connected from 172.19.0.1:41874 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758066141: Client switch-web-0cd069 closed its connection.
+1758066141: New client connected from 172.19.0.1:41194 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758066169: Client lamp-01-web-31ed5c closed its connection.
+1758066169: New client connected from 172.19.0.1:43800 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758066201: New client connected from 172.19.0.1:57430 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758066234: Client switch-web-0cd069 closed its connection.
+1758066234: New client connected from 172.19.0.1:39522 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758066652: Client lamp-01-web-31ed5c closed its connection.
+1758066712: Client switch-web-0cd069 closed its connection.
+1758066714: Client noderedded30b192429857f disconnected.
+1758066714: New connection from 172.19.0.6:37774 on port 1883.
+1758066714: New client connected from 172.19.0.6:37774 as nodered196e1f29d26e7301 (p2, c1, k60, u'aluno').
+1758066801: New client connected from 172.19.0.1:50076 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758066820: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1758066861: New client connected from 172.19.0.1:40754 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758066861: Client lamp-01-web-31ed5c closed its connection.
+1758066921: Client switch-web-0cd069 closed its connection.
+1758066921: New client connected from 172.19.0.1:36492 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758066981: New client connected from 172.19.0.1:58176 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758066981: Client lamp-01-web-31ed5c closed its connection.
+1758067041: Client switch-web-0cd069 closed its connection.
+1758067041: New client connected from 172.19.0.1:58886 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067101: New client connected from 172.19.0.1:37550 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067101: Client lamp-01-web-31ed5c closed its connection.
+1758067161: Client switch-web-0cd069 closed its connection.
+1758067161: New client connected from 172.19.0.1:58460 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067221: Client lamp-01-web-31ed5c closed its connection.
+1758067221: New client connected from 172.19.0.1:47964 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067281: Client switch-web-0cd069 closed its connection.
+1758067281: New client connected from 172.19.0.1:43410 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067324: Client nodered196e1f29d26e7301 disconnected.
+1758067324: New connection from 172.19.0.6:50060 on port 1883.
+1758067324: New client connected from 172.19.0.6:50060 as noderedab92eacff056e21b (p2, c1, k60, u'aluno').
+1758067341: Client lamp-01-web-31ed5c closed its connection.
+1758067341: New client connected from 172.19.0.1:54010 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067349: Client noderedab92eacff056e21b disconnected.
+1758067349: New connection from 172.19.0.6:55622 on port 1883.
+1758067349: New client connected from 172.19.0.6:55622 as noderedb22b5a5afb16e7bb (p2, c1, k60, u'aluno').
+1758067401: New client connected from 172.19.0.1:52054 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067401: Client switch-web-0cd069 closed its connection.
+1758067461: Client lamp-01-web-31ed5c closed its connection.
+1758067461: New client connected from 172.19.0.1:33276 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067521: Client switch-web-0cd069 closed its connection.
+1758067521: New client connected from 172.19.0.1:54986 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067542: Client lamp-01-web-31ed5c closed its connection.
+1758067542: New client connected from 172.19.0.1:35292 as lamp-01-web-31ed5c (p2, c1, k60, u'aluno').
+1758067581: New client connected from 172.19.0.1:48990 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067641: Client switch-web-0cd069 closed its connection.
+1758067701: New client connected from 172.19.0.1:60420 as switch-web-0cd069 (p2, c1, k60, u'aluno').
+1758067761: Client switch-web-0cd069 closed its connection.
+1758067821: New client connected from 172.19.0.1:37736 as switch-web-0cd069 (p2, c1, k60, u'aluno').

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Interruptor MQTT</title>
+<style>
+  body { font-family: ui-sans-serif, system-ui, Arial, sans-serif; display:grid; place-items:center; min-height:100vh; margin:0; background:#0b0e14; color:#e5e7eb }
+  .card { background:#111827; padding:24px; border-radius:16px; width:min(92vw,460px); box-shadow:0 10px 30px rgba(0,0,0,.35) }
+  .btn { background:#2563eb; border:none; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; margin:6px }
+  .btn.alt { background:#475569 }
+  .pill { font-size:12px; padding:4px 8px; border-radius:999px; background:#0f172a; border:1px solid #334155 }
+  .ok { color:#34d399 } .err { color:#f87171 } .muted { color:#9ca3af }
+  code { background:#0b1220; border:1px solid #1e293b; padding:2px 6px; border-radius:6px }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>🔘 Interruptor — Publisher</h2>
+    <div style="margin-bottom:8px">Comando: <code id="tCmd"></code></div>
+    <div>
+      <button id="onBtn" class="btn">Ligar</button>
+      <button id="offBtn" class="btn alt">Desligar</button>
+      <button id="toggleBtn" class="btn">Toggle</button>
+    </div>
+    <div style="margin-top:12px">Último ACK: <span id="ack" class="pill">—</span></div>
+    <div id="log" style="margin-top:10px; font-size:12px" class="muted">Conectando… (use http://, não file://)</div>
+  </div>
+
+  <!-- mqtt.js versão fixa -->
+  <script src="https://cdn.jsdelivr.net/npm/mqtt@4.3.7/dist/mqtt.min.js"></script>
+  <script>
+    const URL = 'ws://localhost:9001/mqtt';
+    const MQTT_OPTS = {
+      username: 'aluno',
+      password: 'aluno123',
+      clientId: 'switch-web-' + Math.random().toString(16).slice(2,8),
+      clean: true,
+      keepalive: 60,
+      protocolVersion: 4
+    };
+    const DEVICE_ID = 'lamp-01';
+    const TOPICS = {
+      cmd: `devices/${DEVICE_ID}/cmd/lamp`,
+      ack: `devices/${DEVICE_ID}/ack/lamp`,
+    };
+
+    const ackEl = document.getElementById('ack');
+    const logEl = document.getElementById('log');
+    document.getElementById('tCmd').textContent = TOPICS.cmd;
+    function log(txt, cls='') { logEl.textContent = txt; logEl.className = cls || 'muted'; }
+
+    const client = mqtt.connect(URL, MQTT_OPTS);
+
+    client.on('connect', () => {
+      log('Conectado ✅', 'ok');
+      client.subscribe(TOPICS.ack, { qos: 1 }, (err) => {
+        if (err) log('Erro ao assinar ACK: ' + err.message, 'err');
+      });
+    });
+    client.on('reconnect', () => log('Reconectando...', 'muted'));
+    client.on('close', () => log('Conexão fechada', 'muted'));
+    client.on('error', (e) => log('Erro: ' + e.message, 'err'));
+
+    client.on('message', (topic, payloadBuf) => {
+      if (topic !== TOPICS.ack) return;
+      try {
+        const ack = JSON.parse(payloadBuf.toString() || '{}');
+        ackEl.textContent = ack.ok ? `OK (corr=${ack.corr||'—'})` : `ERRO: ${ack.msg||'falha'}`;
+      } catch { ackEl.textContent = 'ACK inválido'; }
+    });
+
+    function publishCmd(obj) {
+      const corr = Math.random().toString(16).slice(2,10);
+      const payload = JSON.stringify({ ...obj, corr, ts: Date.now() });
+      client.publish(TOPICS.cmd, payload, { qos: 1, retain: false }, (err) => {
+        if (err) ackEl.textContent = 'Falha ao publicar';
+        else ackEl.textContent = `enviado (corr=${corr})`;
+      });
+    }
+
+    document.getElementById('onBtn').onclick    = () => publishCmd({ on: true  });
+    document.getElementById('offBtn').onclick   = () => publishCmd({ on: false });
+    document.getElementById('toggleBtn').onclick= () => publishCmd({ toggle: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Lâmpada (Simulador MQTT)</title>
+<style>
+  body { font-family: ui-sans-serif, system-ui, Arial, sans-serif; display:grid; place-items:center; min-height:100vh; margin:0; background:#0b0e14; color:#e5e7eb }
+  .card { background:#111827; padding:24px; border-radius:16px; width:min(92vw,460px); box-shadow:0 10px 30px rgba(0,0,0,.35) }
+  .lamp { width:140px; height:140px; border-radius:50%; margin:14px auto;
+          background: radial-gradient(closest-side,#1f2937 0%,#111827 70%);
+          box-shadow: inset 0 0 40px rgba(0,0,0,.6), 0 10px 40px rgba(0,0,0,.4);
+          transition: all .25s ease; }
+  .lamp.on { background: radial-gradient(closest-side,#fffbd1 0%,#fef08a 35%,#fde047 60%,#111827 100%);
+             box-shadow: 0 0 40px rgba(255,241,118,.6), 0 0 120px rgba(255,241,118,.35) }
+  .pill { font-size:12px; padding:4px 8px; border-radius:999px; background:#0f172a; border:1px solid #334155 }
+  .ok { color:#34d399 } .err { color:#f87171 } .muted { color:#9ca3af }
+  code { background:#0b1220; border:1px solid #1e293b; padding:2px 6px; border-radius:6px }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>💡 Lâmpada — Simulador</h2>
+    <div id="lamp" class="lamp"></div>
+    <div style="text-align:center">Estado: <span id="state" class="pill">desligada</span></div>
+    <div style="margin-top:12px; font-size:12px">
+      cmd: <code id="tCmd"></code><br/>
+      ack: <code id="tAck"></code><br/>
+      state: <code id="tState"></code>
+    </div>
+    <div id="log" style="margin-top:12px; font-size:12px" class="muted">Conectando… (use http://, não file://)</div>
+  </div>
+
+  <!-- mqtt.js versão fixa -->
+  <script src="https://cdn.jsdelivr.net/npm/mqtt@4.3.7/dist/mqtt.min.js"></script>
+  <script>
+    // URL com PATH /mqtt
+    const URL = 'ws://localhost:9001/mqtt';
+    const MQTT_OPTS = {
+      username: 'aluno',
+      password: 'aluno123',
+      clientId: 'lamp-01-web-' + Math.random().toString(16).slice(2,8),
+      clean: true,
+      keepalive: 60,
+      protocolVersion: 4
+    };
+    const DEVICE_ID = 'lamp-01';
+    const TOPICS = {
+      cmd:   `devices/${DEVICE_ID}/cmd/lamp`,
+      ack:   `devices/${DEVICE_ID}/ack/lamp`,
+      state: `devices/${DEVICE_ID}/state/lamp`,
+    };
+
+    const lampEl = document.getElementById('lamp');
+    const stateEl = document.getElementById('state');
+    const logEl = document.getElementById('log');
+    document.getElementById('tCmd').textContent = TOPICS.cmd;
+    document.getElementById('tAck').textContent = TOPICS.ack;
+    document.getElementById('tState').textContent = TOPICS.state;
+
+    function log(txt, cls='') { logEl.textContent = txt; logEl.className = cls || 'muted'; }
+    let on = false;
+    function render() {
+      lampEl.classList.toggle('on', on);
+      stateEl.textContent = on ? 'ligada' : 'desligada';
+    }
+
+    const client = mqtt.connect(URL, MQTT_OPTS);
+
+    client.on('connect', () => {
+      log('Conectado ✅', 'ok');
+      client.subscribe(TOPICS.cmd, { qos: 1 }, (err) => {
+        if (err) return log('Erro ao assinar cmd: ' + err.message, 'err');
+        publishState(); // estado inicial (retained)
+      });
+    });
+    client.on('reconnect', () => log('Reconectando...', 'muted'));
+    client.on('close', () => log('Conexão fechada', 'muted'));
+    client.on('error', (e) => log('Erro: ' + e.message, 'err'));
+
+    client.on('message', (topic, payloadBuf) => {
+      if (topic !== TOPICS.cmd) return;
+      try {
+        const msg = JSON.parse(payloadBuf.toString() || '{}');
+        if (typeof msg.on === 'boolean') on = msg.on;
+        else if (msg.toggle === true) on = !on;
+        render();
+        publishState();
+        publishAck(msg.corr || null, true, 'ok');
+        log(`Comando recebido → ${on ? 'on' : 'off'}`, 'ok');
+      } catch (e) {
+        publishAck(null, false, 'invalid_json');
+        log('Payload inválido', 'err');
+      }
+    });
+
+    function publish(topic, obj, {qos=1, retain=false} = {}) {
+      client.publish(topic, JSON.stringify(obj), { qos, retain });
+    }
+    function publishState() {
+      publish(TOPICS.state, { on, ts: Date.now(), source: 'sim' }, { qos:1, retain:true });
+    }
+    function publishAck(corr, ok, msg) {
+      publish(TOPICS.ack, { ok, msg, corr, on, t_exec_ms: 0 }, { qos:1, retain:false });
+    }
+
+    render();
+  </script>
+</body>
+</html>
